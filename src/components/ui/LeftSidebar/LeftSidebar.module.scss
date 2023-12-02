@@ -1,0 +1,103 @@
+.wrapper {
+  background: white;
+  min-height: 100%;
+  flex-basis: 15%;
+  border-top-right-radius: 8px;
+  padding-left: 10px;
+  box-sizing: border-box;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  & > a {
+    margin-top: 10%;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 80%;
+    border-radius: 5px;
+    background-color: #d3f3f5;
+    cursor: pointer;
+
+    h2 {
+      line-height: 0;
+    }
+  }
+
+  hr {
+    position: relative;
+    margin-top: 20%;
+    width: calc(100% + 10px);
+    left: -10px
+  }
+
+  .projectsActions {
+    margin-top: 20%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .searchBox {
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+      padding: 0 20px 0 10px;
+
+      &:focus-within {
+        .searchLogo {
+          display: none;
+        }
+      }
+
+      .searchLogo {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+
+      input {
+        border: none;
+        flex-grow: 1;
+        padding: 8px;
+        font-size: 16px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+
+  }
+
+  .projectsContainer {
+    margin-top: 10%;
+    margin-left: 5%;
+
+    .tasks > a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      img {
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+  }
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+

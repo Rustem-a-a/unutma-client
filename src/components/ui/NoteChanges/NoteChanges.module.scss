@@ -5,10 +5,12 @@
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   padding: 0 60px;
-  h1{
+
+  h1 {
     margin: 10px 0 0 0;
   }
-  .actions{
+
+  .actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,12 +26,8 @@
       gap: 10px;
       justify-content: center;
       align-items: center;
-      //box-shadow: 0 1px skyblue;
       margin-bottom: 5px;
       transition: 0.4s ease-in;
-      &:focus-within {
-        //box-shadow: 0 3px skyblue;
-      }
 
       input {
         border: none;
@@ -43,7 +41,6 @@
 
         transition: 0.3s ease-in;
 
-
         &:focus {
           outline: none;
           box-shadow: 0 3px skyblue;
@@ -56,15 +53,27 @@
         cursor: pointer;
       }
     }
-    .saveDelete{
+
+    .saveDelete {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 20px;
-      span{
+
+      span {
         font-size: 20px;
         font-weight: bold;
         cursor: pointer;
+        border-radius: 10px;
+        background: #dcdfec;
+        padding: 10px;
+        display: inline-block;
+        line-height: 10px;
+
+        &:hover {
+          background: #cacede;
+
+        }
       }
     }
 

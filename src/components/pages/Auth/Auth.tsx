@@ -1,23 +1,33 @@
 import React from 'react';
 import styles from './Auth.module.scss'
 import {Controller, useForm} from "react-hook-form";
-import {IUserRegistration} from "../../../types/IUser";
+import {IUserLogin, IUserRegistration} from "../../../types/IUser";
 import {useLocation} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {loginAsync, registrationAsync} from "../../../store/actions/authActions";
+import {RootState} from "../../../store/store";
 
 const Auth = () => {
     const location = useLocation();
     const currentPath = location.pathname
-    console.log(currentPath)
+    const dispatch = useDispatch()
+    const user = useSelector((state: RootState) => state.user)
     const {control, handleSubmit, formState: {errors}} = useForm<IUserRegistration>()
+    const onSubmit = (data: IUserRegistration | IUserLogin) => {
+        if (currentPath === '/registration') {
+            dispatch(registrationAsync(data as IUserRegistration))
+        }
+        if (currentPath === '/login') {
+            dispatch(loginAsync(data as IUserLogin))
+        }
+    }
     return (
         <div className={styles.wrapper}>
-            <form onSubmit={handleSubmit(() => {
-            })}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 {currentPath === '/registration'
                     ? <h1>Registration</h1>
                     : <h1>Login</h1>
                 }
-
                 <div className={styles.fieldBlock}>
                     <label htmlFor='username'>Username</label>
                     <Controller
@@ -39,7 +49,6 @@ const Auth = () => {
                         <span>{errors.username.message}</span>
                     }
                 </div>
-
                 {currentPath === '/registration' &&
                     <div className={styles.fieldBlock}>
                         <label htmlFor='email'>Email</label>
@@ -85,8 +94,8 @@ const Auth = () => {
                     }
                 </div>
                 {currentPath === '/registration'
-                    ? <button type='submit'>Registration</button>
-                    : <button type='submit'>Login</button>}
+                    ? <button type='submit' disabled={!user.isReceiveResponse}>Registration</button>
+                    : <button type='submit' disabled={!user.isReceiveResponse}>Login</button>}
             </form>
 
         </div>
