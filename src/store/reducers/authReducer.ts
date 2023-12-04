@@ -34,11 +34,10 @@ const authReducer = (state = initialState, action: any) => {
                     ...state,
                     isAuth: true,
                     user: action.payload.user,
-                    isLoadingAuth: true,
+                    isLoadingAuth: false,
                     isReceiveResponse: true,
                     stateError: {} as IErrorResponse
                 });
-
         case LOGIN:
             localStorage.setItem('token', action.payload.accessToken)
             return (
@@ -50,17 +49,14 @@ const authReducer = (state = initialState, action: any) => {
                     isReceiveResponse: true,
                     stateError: {} as IErrorResponse
                 });
-
         case LOGOUT:
             localStorage.removeItem('token')
             return (
                 {...state, isAuth: false, isReceiveResponse: true, isLoadingAuth: false, user: {} as IUser});
-
         case ERR:
             toast.error(action.payload.message)
             return (
                 {...state, isLoadingAuth: false, isReceiveResponse: true, stateError: action.payload});
-
         case CHECK_AUTH:
             localStorage.setItem('token', action.payload.accessToken)
             return (
@@ -75,10 +71,8 @@ const authReducer = (state = initialState, action: any) => {
             )
         case SEND_REQUEST:
             return {...state, isReceiveResponse: false};
-
         case SUCCESS:
             return {...state, isReceiveResponse: true, isLoadingAuth: false};
-
         default:
             return state;
     }

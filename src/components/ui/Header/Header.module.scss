@@ -32,20 +32,57 @@
       margin: 0;
       font-size: 24px;
     }
+
+    .logoSubTitle {
+      @media (max-width: 500px) {
+        display: none;
+      }
+    }
   }
 
   .auth {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 35px;
     margin-right: 20px;
 
-    a, span {
+    .logout {
+      display: none;
+      width: 25px;
+      height: 25px;
+      @media (max-width: 700px) {
+        display: block;
+      }
+    }
+
+    .loginText {
       cursor: pointer;
       padding: 5px;
       text-decoration: none;
       color: black;
       font-size: 20px;
+      @media (max-width: 700px) {
+        display: none;
+      }
     }
+
+    .authImg {
+      display: none;
+
+      .log {
+        width: 24px;
+        height: 24px;
+      }
+
+      .reg {
+        width: 25px;
+        height: 25px;
+      }
+
+      @media (max-width: 700px) {
+        display: block;
+      }
+    }
+
   }
 }

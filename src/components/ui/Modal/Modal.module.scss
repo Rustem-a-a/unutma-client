@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  z-index: 50;
+
+  .window {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+    border-radius: 4px;
+    border: 2px #484747 solid;
+    height: 240px;
+    width: 600px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-weight: bold;
+    margin: 0 20px;
+
+    p {
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .buttons {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}

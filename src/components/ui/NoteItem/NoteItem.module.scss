@@ -4,11 +4,16 @@
   align-items: center;
   padding: 15px 60px;
   border-radius: 4px;
-  box-shadow: 0 2px 10px #d3f3f5;
+  background: rgba(211, 211, 211, 0.2);
   transition: 0.1s ease-in;
+  border: none;
 
   &:hover {
-    box-shadow: 0 5px 10px #d3f3f5;
+    background: rgba(211, 211, 211, 0.37);
+  }
+
+  &:focus-within {
+    background: rgba(211, 211, 211, 0.49);
   }
 
   .checkTitle {
@@ -16,14 +21,15 @@
     align-items: center;
     justify-content: start;
     gap: 20px;
+    flex-grow: 1;
 
     input {
       width: 20px;
       height: 20px;
       cursor: pointer;
+      background: inherit;
 
-
-      &:checked + .itemTitle {
+      &:checked + .changeTitle {
         text-decoration: line-through
       }
     }
@@ -31,6 +37,20 @@
     .itemTitle {
       font-size: 24px;
       cursor: pointer;
+      display: none;
+    }
+
+    .changeTitle {
+      color: black;
+      font-size: 24px;
+      cursor: text;
+      border: none;
+      width: 95%;
+
+      &:focus {
+        outline: none;
+        font-weight: bold;
+      }
     }
   }
 
@@ -44,7 +64,12 @@
       width: 24px;
       height: 24px;
       cursor: pointer;
+      border-radius: 50%;
+      transition: 0.1s ease-in;
+
+      &:hover {
+        box-shadow: 0 0 10px red;
+      }
     }
   }
-
 }

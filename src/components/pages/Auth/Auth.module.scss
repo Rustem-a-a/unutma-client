@@ -30,9 +30,9 @@
 
       input {
         width: 300px;
-        border-radius: 8px;
+        border-radius: 5px;
         border: none;
-        padding: 10px;
+        padding: 15px 20px;
         font-size: 20px;
 
         &:focus {
@@ -48,16 +48,22 @@
 
     button {
       border: none;
-      border-radius: 20px;
-      background: #94b7b9;
+      border-radius: 5px;
+      background: #4661d7;
       width: 300px;
       font-size: 20px;
       font-weight: bold;
-      padding: 10px;
+      padding: 20px;
       cursor: pointer;
+      color: white;
 
       &:hover {
-        background: #8bc1c4;
+        background: rgba(39, 63, 168, 0.82);
+
+      }
+
+      &:active {
+        background: rgba(25, 49, 152, 0.82) !important;
 
       }
     }

@@ -9,16 +9,16 @@ import {RootState} from "../../../store/store";
 
 const Auth = () => {
     const location = useLocation();
-    const currentPath = location.pathname
-    const dispatch = useDispatch()
-    const user = useSelector((state: RootState) => state.user)
-    const {control, handleSubmit, formState: {errors}} = useForm<IUserRegistration>()
+    const currentPath = location.pathname;
+    const dispatch = useDispatch();
+    const user = useSelector((state: RootState) => state.user);
+    const {control, handleSubmit, formState: {errors}} = useForm<IUserRegistration>();
     const onSubmit = (data: IUserRegistration | IUserLogin) => {
         if (currentPath === '/registration') {
-            dispatch(registrationAsync(data as IUserRegistration))
+            dispatch(registrationAsync(data as IUserRegistration));
         }
         if (currentPath === '/login') {
-            dispatch(loginAsync(data as IUserLogin))
+            dispatch(loginAsync(data as IUserLogin));
         }
     }
     return (
@@ -97,7 +97,6 @@ const Auth = () => {
                     ? <button type='submit' disabled={!user.isReceiveResponse}>Registration</button>
                     : <button type='submit' disabled={!user.isReceiveResponse}>Login</button>}
             </form>
-
         </div>
     );
 };

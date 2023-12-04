@@ -13,18 +13,39 @@ const Header = () => {
             <Link to='/' className={styles.logo}>
                 <img src="/note.svg" alt=""/>
                 <span className={styles.logoTitle}>UNUTMA</span>
-                <span>Note List</span>
+                <span className={styles.logoSubTitle}>Note List</span>
             </Link>
             <div className={styles.auth}>
                 {
                     user.isAuth
-                        ? <span onClick={() => {
+                        ?
+                        <><span className={styles.loginText} onClick={() => {
                             dispatch(logoutAsync())
                         }}>Logout</span>
+                            <img className={styles.logout} src="/logout.svg" alt="Logout" title='Logout'
+                                 onClick={() => {
+                                     dispatch(logoutAsync())
+                                 }}/>
+
+                        </>
                         :
                         <>
-                            <Link to='/login'>login </Link> |
-                            <Link to='/registration'>Registration</Link>
+                            <Link className={styles.loginText} to='/login'>login </Link>
+                            <Link className={styles.authImg} to='/login'>
+                                <img
+                                    className={styles.log}
+                                    src="/login.svg"
+                                    alt="Login"
+                                    title='Login'/>
+                            </Link>
+
+                            <Link className={styles.loginText} to='/registration'>Registration</Link>
+                            <Link className={styles.authImg} to='/registration'>
+                                <img className={styles.reg}
+                                     src="/registration.svg"
+                                     alt="Registration"
+                                     title='Registration'/>
+                            </Link>
                         </>
                 }
             </div>
