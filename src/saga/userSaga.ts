@@ -10,10 +10,11 @@ import {
     registration,
     REGISTRATION_ASYNC, sendRequest, successAction,
 } from "../store/actions/authActions";
+import {getNotesAsync} from "../store/actions/noteActions";
 
 function* registrationWorker(action: any) {
     try {
-        yield put(sendRequest())
+        yield put(sendRequest());
         const {data} = yield call(AuthService.registration, action.payload);
         yield put(registration(data));
     } catch (e: any) {
@@ -24,9 +25,10 @@ function* registrationWorker(action: any) {
 
 function* loginWorker(action: any) {
     try {
-        yield put(sendRequest())
+        yield put(sendRequest());
         const {data} = yield call(AuthService.login, action.payload);
         yield put(login(data));
+        yield put(getNotesAsync());
     } catch (e: any) {
         yield put(errorAction(e.response.data));
         yield put(successAction());
@@ -39,7 +41,6 @@ function* logoutWorker() {
         yield call(AuthService.logout);
         yield put(logout());
     } catch (e: any) {
-        console.log(e);
         yield put(successAction());
 
     }
@@ -49,8 +50,8 @@ function* checkAuthWorker() {
     try {
         const {data} = yield call(AuthService.refresh);
         yield put(checkAuth(data));
+        yield put(getNotesAsync())
     } catch (e) {
-        console.log(e);
         yield put(successAction());
 
     }

@@ -12,7 +12,7 @@ const Auth = () => {
     const currentPath = location.pathname;
     const dispatch = useDispatch();
     const user = useSelector((state: RootState) => state.user);
-    const {control, handleSubmit, formState: {errors}} = useForm<IUserRegistration>();
+    const {control, handleSubmit, setValue, formState: {errors}} = useForm<IUserRegistration>();
     const onSubmit = (data: IUserRegistration | IUserLogin) => {
         if (currentPath === '/registration') {
             dispatch(registrationAsync(data as IUserRegistration));
@@ -21,6 +21,7 @@ const Auth = () => {
             dispatch(loginAsync(data as IUserLogin));
         }
     }
+
     return (
         <div className={styles.wrapper}>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -41,7 +42,12 @@ const Auth = () => {
                             }
                         }}
                         render={({field}) => (
-                            <input id='username' {...field} type='text'/>
+                            <input
+                                id='username' {...field}
+                                onChange={e => {
+                                    setValue('username', e.target.value.trim())
+                                }}
+                                type='text'/>
                         )}
                     />
                     {
@@ -63,7 +69,12 @@ const Auth = () => {
                                 }
                             }}
                             render={({field}) => (
-                                <input id='email' {...field} type='text'/>
+                                <input
+                                    id='email' {...field}
+                                    type='text'
+                                    onChange={e => {
+                                        setValue('email', e.target.value.trim())
+                                    }}/>
                             )}
                         />
                         {
@@ -85,7 +96,9 @@ const Auth = () => {
                             }
                         }}
                         render={({field}) => (
-                            <input id='password' {...field} type='password'/>
+                            <input id='password' {...field} type='password' onChange={e => {
+                                setValue('password', e.target.value.trim())
+                            }}/>
                         )}
                     />
                     {

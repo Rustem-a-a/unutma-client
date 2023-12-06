@@ -11,7 +11,7 @@ const Header = () => {
     return (
         <header className={styles.wrapper}>
             <Link to='/' className={styles.logo}>
-                <img src="/note.svg" alt=""/>
+                <img src="/icons/note.svg" alt=""/>
                 <span className={styles.logoTitle}>UNUTMA</span>
                 <span className={styles.logoSubTitle}>Note List</span>
             </Link>
@@ -22,7 +22,7 @@ const Header = () => {
                         <><span className={styles.loginText} onClick={() => {
                             dispatch(logoutAsync())
                         }}>Logout</span>
-                            <img className={styles.logout} src="/logout.svg" alt="Logout" title='Logout'
+                            <img className={styles.logout} src="/icons/logout.svg" alt="Logout" title='Logout'
                                  onClick={() => {
                                      dispatch(logoutAsync())
                                  }}/>
@@ -34,7 +34,7 @@ const Header = () => {
                             <Link className={styles.authImg} to='/login'>
                                 <img
                                     className={styles.log}
-                                    src="/login.svg"
+                                    src="/icons/login.svg"
                                     alt="Login"
                                     title='Login'/>
                             </Link>
@@ -42,7 +42,7 @@ const Header = () => {
                             <Link className={styles.loginText} to='/registration'>Registration</Link>
                             <Link className={styles.authImg} to='/registration'>
                                 <img className={styles.reg}
-                                     src="/registration.svg"
+                                     src="/icons/registration.svg"
                                      alt="Registration"
                                      title='Registration'/>
                             </Link>

@@ -24,7 +24,6 @@ export const initialState: IInitialState = {
     stateError: {} as IErrorResponse,
 }
 
-
 const authReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case REGISTRATION:

@@ -3,13 +3,15 @@
   color: black;
   padding: 10px;
   text-align: center;
-  height: 48px;
+  height: 58px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
+  width: 100%;
   z-index: 50;
+  box-sizing: border-box;
 
   .logo {
     text-decoration: none;
@@ -21,11 +23,15 @@
 
     .logoTitle {
       font-weight: bold;
+
     }
 
     img {
       width: 50px;
       height: 50px;
+      @media (max-width: 250px) {
+        display: none;
+      }
     }
 
     span {
@@ -83,6 +89,5 @@
         display: block;
       }
     }
-
   }
 }

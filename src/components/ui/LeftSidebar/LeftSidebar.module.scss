@@ -1,10 +1,26 @@
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(106, 106, 106, 0.6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
 .wrapper {
   background: white;
   min-height: 100%;
-  flex-basis: 15%;
   border-top-right-radius: 8px;
-  padding-left: 10px;
   box-sizing: border-box;
+  width: 15%;
+  position: fixed;
+  top: 58px;
+  overflow-y: auto;
+  max-height: calc(100vh - 58px);
 
   a {
     text-decoration: none;
@@ -12,29 +28,24 @@
   }
 
   & > a {
-    margin-top: 10%;
+    margin-top: 30px;
+    margin-bottom: 60px;
     padding: 0 5px;
     display: flex;
     align-items: center;
     gap: 10px;
-    width: 80%;
-    border-radius: 5px;
-    background-color: #d3f3f5;
     cursor: pointer;
+    max-width: 100%;
+    box-sizing: border-box;
+    border-bottom: 2px rgba(0, 0, 0, 0.44) solid;
 
     h2 {
-      line-height: 0;
+      margin-left: 5%;
+      margin-bottom: 60px;
     }
   }
 
-  hr {
-    position: relative;
-    margin-top: 20%;
-    width: calc(100% + 10px);
-    left: -10px
-  }
-
-  .projectsActions {
+  .notesActions {
     margin-top: 20%;
     display: flex;
     align-items: center;
@@ -50,11 +61,10 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       overflow: hidden;
-      padding: 0 20px 0 10px;
 
       &:focus-within {
         .searchLogo {
-          display: none;
+          visibility: hidden;
         }
       }
 
@@ -69,6 +79,7 @@
         flex-grow: 1;
         padding: 8px;
         font-size: 16px;
+        width: 100%;
 
         &:focus {
           outline: none;
@@ -79,18 +90,30 @@
 
   }
 
-  .projectsContainer {
+  .notesContainer {
     margin-top: 10%;
-    margin-left: 5%;
+    margin-left: 10%;
+    max-width: 100%;
 
-    .tasks > a {
+    .note > a {
       display: flex;
       align-items: center;
       gap: 5px;
 
+
       img {
         width: 15px;
         height: 15px;
+      }
+
+      p {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      .active {
+        color: red
       }
     }
 
@@ -100,4 +123,3 @@
     display: none;
   }
 }
-

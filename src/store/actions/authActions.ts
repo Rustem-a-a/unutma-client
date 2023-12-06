@@ -1,4 +1,4 @@
-import {IUser, IUserLogin, IUserRegistration} from "../../types/IUser";
+import {IUserLogin, IUserRegistration} from "../../types/IUser";
 import {AuthResponse} from "../../types/response/IResponse";
 import {IErrorResponse} from "../../types/response/IErrorResponse";
 

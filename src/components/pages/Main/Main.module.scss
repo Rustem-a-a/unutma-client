@@ -1,56 +1,32 @@
 .wrapper {
+  margin-left: calc(15% + 10px);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   gap: 10px;
+  max-width: calc(100% - 15% - 10px);
 
-  .change {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    background: white;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-    padding: 10px;
-
-    .add {
-      display: flex;
-      padding: 5px;
-      width: 70%;
-      border-radius: 5px;
-      gap: 10px;
-      justify-content: center;
-      align-items: center;
-      border: 1px skyblue solid;
-
-
-      input {
-        border: none;
-        width: 100%;
-        border-radius: 5px;
-        height: 40px;
-        box-sizing: border-box;
-        background: inherit;
-        font-size: 20px;
-        padding: 15px;
-
-        &:focus {
-          outline: none;
-        }
-      }
-
-      img {
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-      }
-    }
+  @media (max-width: 900px) {
+    max-width: 100%;
+    margin-left: 0;
+    gap: 0;
   }
 
   .noteSection {
-    flex-grow: 1;
+    background: gray;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     background: white;
     border-top-left-radius: 8px;
     padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    flex-grow: 1;
+
+    @media (max-width: 900px) {
+      border-top-left-radius: 0;
+
+    }
   }
 }

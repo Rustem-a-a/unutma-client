@@ -11,6 +11,7 @@ interface IProps {
     onClick?: () => void;
     displayTitle?: boolean;
 }
+
 const Button: FC<IProps> = ({
                                 theme = 'gray',
                                 title,
@@ -20,14 +21,17 @@ const Button: FC<IProps> = ({
                                 displayTitle
                             }) => {
     return (
-        <div onClick={onClick} className={`${styles.button} ${styles[theme]}`}>
-            {icon && <img src={`/${icon}`} alt={icon} style={{width: scaleImg, height: scaleImg}}/>}
-            <span>
-                {title}
-            </span>
-            {displayTitle && <span className={styles.displayTitle}>
-                {title}
-            </span>}
+        <div
+            title={title}
+            onClick={onClick}
+            className={`${styles.button} ${styles[theme]}`}>
+            {icon && <img
+                src={`/icons/${icon}`}
+                alt={icon}
+                style={{width: scaleImg, height: scaleImg}}/>
+            }
+            <span>{title}</span>
+            {displayTitle && <span className={styles.displayTitle}>{title}</span>}
         </div>
 
     );

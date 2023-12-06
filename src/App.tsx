@@ -8,9 +8,9 @@ function App() {
     const dispatch = useDispatch()
     useEffect(() => {
         if (localStorage.getItem('token')) {
-            dispatch(checkAuthAsync())
+            dispatch(checkAuthAsync());
         } else {
-            dispatch(successAction())
+            dispatch(successAction());
         }
     }, []);
 

@@ -4,10 +4,13 @@ import {rootWatcher} from "../saga";
 import authReducer from "./reducers/authReducer";
 import {IUser} from "../types/IUser";
 import {IErrorResponse} from "../types/response/IErrorResponse";
+import noteReducer from "./reducers/noteReducer";
+import {INoteResponse} from "../types/response/IResponse";
 
 const sagaMiddleware = createSagaMiddleware();
 const rootReducer = combineReducers({
-    user: authReducer
+    user: authReducer,
+    notes: noteReducer
 })
 
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleware))
@@ -20,7 +23,8 @@ export interface RootState {
         stateError: IErrorResponse,
         isReceiveResponse: boolean;
         isLoadingAuth: boolean
-    }
+    },
+    notes: INoteResponse[]
 }
 
 export type Dispatch = typeof store.dispatch

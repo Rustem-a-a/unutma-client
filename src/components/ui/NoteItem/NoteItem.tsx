@@ -43,8 +43,9 @@ const NoteItem: FC<IProps> = ({
             </div>
             <div className={styles.deleteEdit}>
                 <img
-                    src="/delete.svg"
-                    alt="Delete item "
+                    src="/icons/delete.svg"
+                    alt="Delete item"
+                    title="Delete item"
                     onClick={() => handleChangeDelete(itemId)}/>
             </div>
         </div>

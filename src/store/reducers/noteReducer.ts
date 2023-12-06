@@ -9,14 +9,16 @@ const noteReducer = (state = initialState, action: any) => {
         case GET_NOTES:
             return action.payload
         case CREATE_NOTE:
+            toast.success('Note created');
             return ([...state, action.payload])
         case CHANGE_ITEMS:
-            toast.success('Changes saved')
+            toast.success('Changes saved');
             return ([...state.map(note => {
                 if (note._id !== action.payload._id) return note
                 else return action.payload
             })])
         case DELETE_NOTE:
+            toast.success('Note deleted')
             return ([...state.filter(note => note._id !== action.payload)])
         default:
             return state

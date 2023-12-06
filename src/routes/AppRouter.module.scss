@@ -3,10 +3,12 @@
   flex-direction: column;
   position: relative;
   min-height: 100vh;
+  max-width: 100%;
 
   main {
     flex-grow: 1;
     display: flex;
     gap: 10px;
+    max-width: 100%;
   }
 }

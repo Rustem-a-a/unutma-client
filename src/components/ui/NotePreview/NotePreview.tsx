@@ -1,19 +1,47 @@
-import React from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import styles from './NotePreview.module.scss'
-const NotePreview = () => {
+import {IItem} from "../../../types/INote";
+import {Link} from "react-router-dom";
+import Button from "../Button/Button";
+
+interface IProps {
+    noteId: string;
+    title: string;
+    items: IItem[]
+    setIsModal: React.Dispatch<React.SetStateAction<boolean>>;
+    setNoteId: React.Dispatch<React.SetStateAction<string>>
+
+}
+
+const NotePreview: FC<IProps> = ({title, items, noteId, setIsModal, setNoteId}) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.title}>
-                <h2>Title</h2>
+                <p title={title}>{title}</p>
                 <div className={styles.actions}>
-                    <span>Edit</span>
-                    <span>Delete</span>
+                    <Link to={`/note/${noteId}`}>
+                        <Button
+                            title={'Edit'}
+                            theme="green"
+                            icon='edit.svg'
+                            scaleImg={24}
+                        />
+                    </Link>
+                        <Button
+                            title='Delete'
+                            theme="red"
+                            icon='delete.svg'
+                            scaleImg={24}
+                            onClick={() => {
+                                setNoteId(noteId)
+                                setIsModal(true)
+                            }}
+                        />
                 </div>
             </div>
             <ul className={styles.todos}>
-                <li>first</li>
-                <li>second</li>
-                <span>.......</span>
+                {items.slice(0, 2).map((item, ind) => <li key={item._id}>{`${ind + 1}. ${item.itemTitle}`}</li>)}
+                {items.length > 2 && <li className={styles.lastLi}>.......</li>}
             </ul>
         </div>
     );

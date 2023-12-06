@@ -8,7 +8,7 @@ const Letter = () => {
                 <p>Please check your email</p>
                 <p>we send letter with activation link</p>
             </div>
-            <img src="/letter.svg" alt="Letter"/>
+            <img src="/icons/letter.svg" alt="Letter"/>
         </div>
     );
 };

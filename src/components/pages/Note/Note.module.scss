@@ -1,9 +1,16 @@
 .wrapper {
+  margin-left: calc(15% + 10px);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   gap: 10px;
+  max-width: calc(100% - 15% - 10px);
 
+  @media (max-width: 900px) {
+    max-width: 100%;
+    margin-left: 0;
+    gap: 0;
+  }
 
 
   .noteSection {
@@ -11,5 +18,8 @@
     background: white;
     border-top-left-radius: 8px;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 }

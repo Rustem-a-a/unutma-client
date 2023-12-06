@@ -4,7 +4,7 @@ import {
     CHANGE_ITEMS_ASYNC,
     changeItems,
     CREATE_NOTE_ASYNC,
-    createNote, DELETE_NOTE_ASYNC, deleteNote, deleteNoteAsync,
+    createNote, DELETE_NOTE_ASYNC, deleteNote,
     GET_NOTES_ASYNC,
     getNotes, getNotesAsync
 } from "../store/actions/noteActions";

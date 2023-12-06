@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -6,12 +6,13 @@
   height: 50vh;
   border-top: 10px white solid;
 
-  .text{
+  .text {
     font-size: 35px;
     text-align: center;
     letter-spacing: 1px;
   }
-  img{
+
+  img {
     width: 100px;
     height: 100px;
   }

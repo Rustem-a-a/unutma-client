@@ -35,7 +35,6 @@ const AppRouter = () => {
                                     : <Letter/>}
                             </>
                             : <Routes>
-                                <Route path='/' element={<Auth/>}/>
                                 <Route path='/login' element={<Auth/>}/>
                                 <Route path='/registration' element={<Auth/>}/>
                                 <Route path='*' element={<Navigate to='/login'/>}/>
