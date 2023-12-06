@@ -37,8 +37,12 @@ const Auth = () => {
                         rules={{
                             required: 'Username name is required',
                             minLength: {
-                                value: 5,
-                                message: 'Username must have at least 5 characters long'
+                                value: 3,
+                                message: 'Username must have at least 3 characters long'
+                            },
+                            maxLength: {
+                                value: 20,
+                                message: 'Username must have at least 20 characters long'
                             }
                         }}
                         render={({field}) => (
@@ -101,6 +105,10 @@ const Auth = () => {
                             minLength: {
                                 value: 5,
                                 message: 'Password must have at least 5 characters long'
+                            },
+                            maxLength: {
+                                value: 20,
+                                message: 'Username must have at least 20 characters long'
                             }
                         }}
                         render={({field}) => (
