@@ -27,7 +27,6 @@
 * Frontend:
     + React
     + axios
-    + react
     + react-hook-form
     + react-redux
     + react-router-dom
@@ -38,7 +37,7 @@
     + typescript
 
 * Backend:
-    + express - создание серверной части
+    + express
     + bcryptjs
     + cookie-parser
     + cors

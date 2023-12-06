@@ -94,29 +94,38 @@
     margin-top: 10%;
     margin-left: 10%;
     max-width: 100%;
+    margin-bottom: 20%;
 
-    .note > a {
-      display: flex;
-      align-items: center;
-      gap: 5px;
+    .note {
+      .activeLink {
+        font-weight: bold;
 
-
-      img {
-        width: 15px;
-        height: 15px;
+        img {
+          width: 20px;
+          height: 20px;
+          margin-left: 5px;
+        }
       }
 
-      p {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-      }
+      a {
+        display: flex;
+        align-items: center;
+        gap: 5px;
 
-      .active {
-        color: red
+
+        img {
+          width: 15px;
+          height: 15px;
+          transition: 0.1s ease-in;
+        }
+
+        p {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
       }
     }
-
   }
 
   @media (max-width: 900px) {

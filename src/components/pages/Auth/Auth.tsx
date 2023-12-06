@@ -12,7 +12,7 @@ const Auth = () => {
     const currentPath = location.pathname;
     const dispatch = useDispatch();
     const user = useSelector((state: RootState) => state.user);
-    const {control, handleSubmit, setValue, formState: {errors}} = useForm<IUserRegistration>();
+    const {control, handleSubmit, setValue,setError,clearErrors, formState: {errors}} = useForm<IUserRegistration>();
     const onSubmit = (data: IUserRegistration | IUserLogin) => {
         if (currentPath === '/registration') {
             dispatch(registrationAsync(data as IUserRegistration));
@@ -45,7 +45,15 @@ const Auth = () => {
                             <input
                                 id='username' {...field}
                                 onChange={e => {
-                                    setValue('username', e.target.value.trim())
+                                    if (/[^a-zяа-яА-яA-Z0-9_.-]/.test(e.target.value)) {
+                                        setError('username', {
+                                            type: 'manual',
+                                            message: 'Possible only letters, numbers and  . , - _ '
+                                        });
+                                    } else {
+                                        clearErrors('username');
+                                        setValue('username', e.target.value.replace(/[^a-zяа-яА-яA-Z0-9_.-]/g,'').trim())
+                                    }
                                 }}
                                 type='text'/>
                         )}

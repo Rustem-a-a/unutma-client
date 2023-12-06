@@ -1,101 +1,113 @@
-.change {
-  display: flex;
-  flex-direction: column;
-  background: white;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  padding: 0 60px;
-  box-sizing: border-box;
-  max-width: 100%;
+.wrapper {
+  position: sticky;
+  top: 58px;
+  z-index: 10;
+  background: #dcdfec;
 
-  @media (max-width: 900px) {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  .change {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding: 0 60px;
+    box-sizing: border-box;
+    max-width: 100%;
     position: sticky;
     top: 58px;
     z-index: 100;
     box-shadow: 0 1px 2px #484747;
-  }
 
-  .title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    h1 {
-      margin: 10px 0 0 0;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-      @media (max-width: 1350px) {
-        text-align: center;
-      }
+    @media (max-width: 900px) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      position: sticky;
+      top: 58px;
+      z-index: 100;
+      box-shadow: 0 1px 2px #484747;
     }
 
-    .back {
-      width: 35px;
-      height: 35px;
-      cursor: pointer;
-    }
-
-
-  }
-
-  .actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-    padding: 10px 0;
-    @media (max-width: 1350px) {
-      flex-direction: column;
-    }
-
-    .add {
-      display: flex;
-      padding: 5px;
-      width: 50%;
-      gap: 10px;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 5px;
-      transition: 0.4s ease-in;
-      @media (max-width: 1350px) {
-        width: 100%;
-      }
-
-
-      input {
-        border: none;
-        width: 100%;
-        height: 40px;
-        box-sizing: border-box;
-        background: inherit;
-        font-size: 20px;
-        padding: 10px;
-        box-shadow: 0 1px skyblue;
-        transition: 0.2s ease-in;
-
-        &:focus {
-          outline: none;
-          box-shadow: 0 3px skyblue;
-        }
-      }
-
-      img {
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-      }
-    }
-
-    .saveDelete {
+    .title {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
+
+      h1 {
+        margin: 10px 0 0 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        @media (max-width: 1350px) {
+          text-align: center;
+        }
+      }
+
+      .back {
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+      }
+
+
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      padding: 10px 0;
+      @media (max-width: 1350px) {
+        flex-direction: column;
+      }
+
+      .add {
+        display: flex;
+        padding: 5px;
+        width: 50%;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5px;
+        transition: 0.4s ease-in;
+        @media (max-width: 1350px) {
+          width: 100%;
+        }
+
+
+        input {
+          border: none;
+          width: 100%;
+          height: 40px;
+          box-sizing: border-box;
+          background: inherit;
+          font-size: 20px;
+          padding: 10px;
+          box-shadow: 0 1px skyblue;
+          transition: 0.2s ease-in;
+
+          &:focus {
+            outline: none;
+            box-shadow: 0 3px skyblue;
+          }
+        }
+
+        img {
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+        }
+      }
+
+      .saveDelete {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+      }
     }
   }
+
 }

@@ -68,6 +68,7 @@
       transition: 0.1s ease-in;
 
       &:hover {
+        background: rgba(255, 0, 0, 0.27);
         box-shadow: 0 0 10px red;
       }
     }

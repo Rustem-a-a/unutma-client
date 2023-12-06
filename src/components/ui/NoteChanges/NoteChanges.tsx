@@ -60,74 +60,77 @@ const NoteChanges: FC<IProps> = ({
 
     }
     return (
-        <div className={styles.change}>
-            <div className={styles.title}>
-                <h1 title={title}>{title}</h1>
-                {placeholder === 'Add item' &&
-                    <Link to='/'>
-                    <img className={styles.back} src="/icons/toMain.svg" alt="toMain" title="Back to home page"/>
-                </Link>
-                }
-            </div>
+        <div className={styles.wrapper}>
+            <div className={styles.change}>
+                <div className={styles.title}>
+                    <h1 title={title}>{title}</h1>
+                    {placeholder === 'Add item' &&
+                        <Link to='/'>
+                            <img className={styles.back} src="/icons/toMain.svg" alt="toMain"
+                                 title="Back to home page"/>
+                        </Link>
+                    }
+                </div>
 
-            <div className={styles.actions}>
-                {placeholder === 'Add note'
-                    ? <div className={styles.add}>
-                        <input type="text" placeholder={`${placeholder}...`}
-                               value={nodeTitle}
-                               onChange={e => setNodeTitle(e.target.value.trimStart())}
-                               onKeyDown={(e) => {
-                                   if (e.key === 'Enter') {
-                                       addNote()
-                                   }
-                                   if (e.key === 'Escape') {
-                                       setNodeTitle('')
-                                   }
-
-                               }}
-                        />
-                        <img src='/icons/noteAdd.svg' alt='Note Add' onClick={() => addNote()} title={placeholder}/>
-                    </div>
-                    : <div className={styles.add}>
-                        <input type="text" placeholder={`${placeholder}...`}
-                               value={item.itemTitle}
-                               onChange={newItem}
-                               onKeyDown={(e) => {
-                                   if (e.key === 'Enter') {
-                                       if (addNewItemLocal) {
-                                           addNewItem()
+                <div className={styles.actions}>
+                    {placeholder === 'Add note'
+                        ? <div className={styles.add}>
+                            <input type="text" placeholder={`${placeholder}...`}
+                                   value={nodeTitle}
+                                   onChange={e => setNodeTitle(e.target.value.trimStart())}
+                                   onKeyDown={(e) => {
+                                       if (e.key === 'Enter') {
+                                           addNote()
                                        }
-                                   }
-                                   if (e.key === 'Escape') {
-                                       setItem({itemTitle: '', checked: false, _id: ''})
-                                   }
-                               }}
-                        /> <img
-                        src='/icons/noteAdd.svg'
-                        alt='Note Add'
-                        onClick={() => {
-                            addNewItem()
-                        }}
-                        title={placeholder}
-                    />
-                    </div>
-                }
+                                       if (e.key === 'Escape') {
+                                           setNodeTitle('')
+                                       }
 
-                {placeholder === 'Add item' &&
-                    <div className={styles.saveDelete}>
-                        <Button onClick={() => {
-                            isChanging && setIsModalChange && setIsModalChange(true)
-                        }} title={'Cancel Changes'} theme={isChanging ? 'red' : "gray"} icon='cancelChanges.svg'
-                                scaleImg={24}/>
-                        <Button title='Save' onClick={() => {
-                            saveChangesToDB && isChanging && saveChangesToDB()
-                        }
-                        } theme={isChanging ? 'green' : "gray"} icon='save.svg' scaleImg={24}/>
-                        <Button title='Delete' onClick={() => {
-                            setIsModal && setIsModal(true)
-                        }} theme="red" icon='delete.svg' scaleImg={24}/>
-                    </div>
-                }
+                                   }}
+                            />
+                            <img src='/icons/noteAdd.svg' alt='Note Add' onClick={() => addNote()} title={placeholder}/>
+                        </div>
+                        : <div className={styles.add}>
+                            <input type="text" placeholder={`${placeholder}...`}
+                                   value={item.itemTitle}
+                                   onChange={newItem}
+                                   onKeyDown={(e) => {
+                                       if (e.key === 'Enter') {
+                                           if (addNewItemLocal) {
+                                               addNewItem()
+                                           }
+                                       }
+                                       if (e.key === 'Escape') {
+                                           setItem({itemTitle: '', checked: false, _id: ''})
+                                       }
+                                   }}
+                            /> <img
+                            src='/icons/noteAdd.svg'
+                            alt='Note Add'
+                            onClick={() => {
+                                addNewItem()
+                            }}
+                            title={placeholder}
+                        />
+                        </div>
+                    }
+
+                    {placeholder === 'Add item' &&
+                        <div className={styles.saveDelete}>
+                            <Button onClick={() => {
+                                isChanging && setIsModalChange && setIsModalChange(true)
+                            }} title={'Cancel Changes'} theme={isChanging ? 'red' : "gray"} icon='cancelChanges.svg'
+                                    scaleImg={24}/>
+                            <Button title='Save' onClick={() => {
+                                saveChangesToDB && isChanging && saveChangesToDB()
+                            }
+                            } theme={isChanging ? 'green' : "gray"} icon='save.svg' scaleImg={24}/>
+                            <Button title='Delete' onClick={() => {
+                                setIsModal && setIsModal(true)
+                            }} theme="red" icon='delete.svg' scaleImg={24}/>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     );
